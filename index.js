@@ -32,23 +32,21 @@ Comandi disponibili:
 bot.onText(/\/pitch/, (msg) => {
   const chatId = msg.chat.id;
   bot.sendMessage(chatId, `
-Bot creato durante il corso di Containerizzazione e Deployment.
-Versione: 1.0.0
-Ambiente: ${process.env.NODE_ENV || 'development'}
+ModMore è una piattaforma per la gestione e distribuzione di mod per videogiochi. La piattaforma si distingue per la sua universalità, accogliendo contenuti per qualsiasi videogioco, sia esso supportato ufficialmente o meno e permette ai creatori di rimanere in contatto con la loro community. Per i giochi supportati, ModMore offre un sistema di installazione automatizzato che semplifica drasticamente l'esperienza utente.
 `);
 });
 
 // Gestisci messaggi non riconosciuti
 bot.on('message', (msg) => {
   const chatId = msg.chat.id;
-  
+
   // Ignora i comandi che abbiamo già gestito
-  if (msg.text && (msg.text.startsWith('/start') || 
-                   msg.text.startsWith('/help') || 
-                   msg.text.startsWith('/pitch'))) {
+  if (msg.text && (msg.text.startsWith('/start') ||
+    msg.text.startsWith('/help') ||
+    msg.text.startsWith('/pitch'))) {
     return;
   }
-  
+
   bot.sendMessage(chatId, 'Non ho capito. Usa /help per vedere i comandi disponibili.');
 });
 
